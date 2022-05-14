@@ -1,30 +1,55 @@
-$(readyNow)
+$(readyNow);
 
-function readyNow(){
-  $(document).on('click', '.button', appendDom)
+function readyNow() {
+   
+    $(document).on('click', '#add-button', appendDom);
+}
+let newEmployeeArray = []
+function newEmployee(firstName,lastName,idNumber, jobTitle, annualSalary){
+    const newEmployeeObject = {
+        first: firstName,
+        last: lastName,
+        id: idNumber,
+        title: jobTitle,
+        salary: annualSalary
+    }
+
+    newEmployeeArray.push(newEmployeeObject);
 }
 
 function appendDom(){
-    let empFirstName = $('#emp-first-name').val()
-    let empLastName = $('#emp-last-name').val()
-    let empId = $('#id').val()
-    let empTitle = $('#job-title').val()
-    let empSalary= $('#annual-sal').val()
+    firstName = $('#emp-first-name').val()
+    lastName = $('#emp-last-name').val()
+    idNumber = $('#id').val()
+    jobTitle = $('#job-title').val()
+    annualSalary = $('#annual-sal').val()
 
-    $('#salary-calc-table').append(`
+    newEmployee(firstName,lastName,idNumber, jobTitle, annualSalary);
+    console.log(newEmployeeArray)
+    
+    if (!firstName || !lastName|| !idNumber || !jobTitle|| !annualSalary){     // tried to utilize if inputField == null but it doesnt work?
+        alert('Please fill in all input fields.')
+    }
+
+    $('.employee-input').val('')
+
+   for (let employees of newEmployeeArray){
+    $('#employee-calc-table').append(`
     <tr>
-        <td>${empFirstName}</td>
-        <td>${empLastName}</td>
-        <td>${empId}</td>
-        <td>${empTitle}</td>
-        <td>${empSalary}</td>
+        <td>${employees.first}</td>
+        <td>${employees.last}</td>
+        <td>${employees.id}</td>
+        <td>${employees.title}</td>
+        <td>${employees.annualSalary}</td>
         
         <td>
+                </button>
             <button class="delete-btn">
-                Delete
+                Delete Line
             </button>
         </td>
     </tr>  
 `);
-  
+   }
 }
+
