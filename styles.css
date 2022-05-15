@@ -2,3 +2,77 @@
     background-color: red;
     width: fit-content;
 }
+body{
+    margin: 0;
+}
+
+h3{
+    border-bottom: 3px solid black;
+    width: fit-content;
+}
+
+
+
+header{
+    color: white;
+    background-color: gray;
+    text-align: center;
+    width: 100%;
+    height: 2em;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+input{
+    
+    margin:0 .5%;
+    border: 2px inset darkgrey;
+}
+
+.input-align{
+    padding-left: 5%;
+}
+
+.body-break{
+    margin:5% auto;
+    height: 15px;
+    width: 95%;
+    background-color: darkgray;
+}
+
+.right-align-text{
+    text-align: right;
+}
+
+table{
+    margin:5% auto;
+    margin-bottom: 0;
+    width: 50%;
+    border-collapse: collapse;
+}
+
+tbody > tr:nth-child(even){
+    background-color: lightgray;
+
+}
+
+#blank{
+    width: 52px;
+}
+
+thead{
+    
+    background-color: lightgray;
+}
+
+thead, td, th{
+    
+    padding: 10%, 10%;
+    border: 2px inset darkgrey;
+}
+
+.padding-right{
+    padding-right: 25%;
+}

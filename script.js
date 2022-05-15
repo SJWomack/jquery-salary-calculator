@@ -1,5 +1,5 @@
 $(readyNow);
-
+//modeled this project after the week 6 garage project (idea cred to)
 function readyNow() {
 
     $(document).on('click', '#add-button', appendArray);
@@ -39,14 +39,16 @@ function appendArray() {
 
     appendDom()
 }
-
+// empties table body, loops through newEmployee array and appends tr for each object in array
+//each appended button has an id of the index of the object used for the information at that row
+//calls display total after exiting loop
 function appendDom() {
     $('#calc-table-body').empty();
 
-    for (let i = 0; i < newEmployeeArray.length; i ++) {
-        
-        $('#calc-table-body').append(`
-        <tr>
+    for (let i = 0; i < newEmployeeArray.length; i++) {
+
+        $('#calc-table-body').append(
+        `<tr>
             <td>${newEmployeeArray[i].first}</td>
             <td>${newEmployeeArray[i].last}</td>
             <td>${newEmployeeArray[i].id}</td>
@@ -54,23 +56,30 @@ function appendDom() {
             <td>${newEmployeeArray[i].salary}</td>
         
             <td>
-            <button class="delete-btn" id = "${i}">
-                Delete Line
-            </button>
+                <button class ="delete-btn" id=${i}> Delete </button>
             </td>
-        </tr>`  
+        </tr>`
         );
-       ;
+       // $('tr').last().data('employee', newEmployeeArray[i]);  //test
+       // console.log($('tr').last().data('employee'), 'wow')    //test
+        
        // $(`#${i}`).data(`${newEmployeeArray[i].id}, ${i}`);  // fuck u .data()
-       
+
     }
     displayTotal()
 }
-
+// uses .attr to grab the value of the id of the button clicked uses this value to splice
+//the object at said index in the array of new employees
+//since the rows are appended on id corresponds with index in the array
 function deleteButton() {
-    let index = $(this).attr('id')
-    
-    newEmployeeArray.splice(index, 1)
+
+    /* console.log('ay')
+    let index = $(this).parents('tr').data('employee');
+    console.log(index, 'deleted') */
+    let index = $(this).attr('id');
+    $(this).remove();
+
+    newEmployeeArray.splice(index, 1);
     appendDom();
 
 }
