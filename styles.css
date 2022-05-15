@@ -59,7 +59,7 @@ tbody > tr:nth-child(even){
 }
 
 #blank{
-    width: 52px;
+    width: 65px;
 }
 
 thead{
@@ -67,7 +67,7 @@ thead{
     background-color: lightgray;
 }
 
-thead, td, th{
+tbody > thead, td, th{
     
     padding: 10%, 10%;
     border: 2px inset darkgrey;
@@ -75,4 +75,8 @@ thead, td, th{
 
 .padding-right{
     padding-right: 25%;
+}
+
+.delete-btn{
+    margin: 0 7%;
 }
