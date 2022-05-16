@@ -93,8 +93,13 @@ function displayTotal() {
     $('#monthly-total-salary').empty();
     $('#monthly-total-salary').append((yearlySumSpending / 12).toFixed(2));
     if (Number(yearlySumSpending / 12) > 20000) {
-        let line = $('#total-monthly');
+        let line = $('#monthly-total-salary');
         line.addClass('background-color-red');
+        }
+    else{
+        let line = $('#monthly-total-salary');
+        line.removeClass('background-color-red')
     }
+    
 }
 
